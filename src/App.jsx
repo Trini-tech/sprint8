@@ -1,7 +1,6 @@
 import BalanceCard from './components/BalanceCard';
 import ChartCard from './components/Chartcard';
 import Languages from './components/Languages';
-import { TodoReduxToolKitComponent } from './components/todo';
 
 function App() {
   return (
@@ -10,7 +9,6 @@ function App() {
         <Languages />
         <BalanceCard />
         <ChartCard />
-        <TodoReduxToolKitComponent />
       </div>
     </>
   );

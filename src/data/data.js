@@ -26,7 +26,7 @@ export const weeksData = [
   {
     week: 'week3',
     data: [
-      { day: 'dilluns', cost: 1 },
+      { day: 'dilluns', cost: 50 },
       { day: 'dimarts', cost: 36 },
       { day: 'dimecres', cost: 501 },
       { day: 'dijous', cost: 257 },

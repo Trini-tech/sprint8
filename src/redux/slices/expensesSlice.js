@@ -4,6 +4,7 @@ import { weeksData } from '../../data/data';
 const initialState = {
   weeksData,
   currentWeek: 'week4',
+  today: weeksData.find((week) => week.week === 'week4')?.data.find((day) => day.day.toLowerCase() === 'dilluns')?.cost || null,
 };
 
 const expensesSlice = createSlice({
@@ -22,11 +23,14 @@ const expensesSlice = createSlice({
     },
     changeCurrentWeek: (state, action) => {
       const newCurrentWeek = action.payload.currentWeek;
+      const newToday = state.weeksData.find((week) => week.week === newCurrentWeek)?.data.find((day) => day.day.toLowerCase() === 'dilluns')?.cost || null;
+
       if (state.weeksData.some((week) => week.week === newCurrentWeek)) {
         // Actualiza la información de la semana actual
         return {
           ...state,
           currentWeek: newCurrentWeek,
+          today: newToday,
         };
       } else {
         return state;
@@ -37,3 +41,4 @@ const expensesSlice = createSlice({
 
 export const { weeklyBalance, changeCurrentWeek } = expensesSlice.actions;
 export const expensesReducer = expensesSlice.reducer;
+export const todaySelector = (state) => state.expenses.today;

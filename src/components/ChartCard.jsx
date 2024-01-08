@@ -1,6 +1,7 @@
 import { Bar } from 'react-chartjs-2';
 import { Chart as ChartJS, CategoryScale, LinearScale, PointElement, BarElement, Title, Tooltip, Legend, Filler } from 'chart.js';
 import { useSelector } from 'react-redux';
+import { todaySelector } from '../redux/slices/expensesSlice';
 
 ChartJS.register(CategoryScale, LinearScale, PointElement, BarElement, Title, Tooltip, Legend, Filler);
 
@@ -51,6 +52,21 @@ function BarsChart() {
 }
 
 function ChartCard() {
+  const { currentWeek, weeksData, today: currentMondayCost } = useSelector((state) => state.expenses);
+
+  // Obtén los datos de la semana actual
+  const currentWeekData = weeksData.find((week) => week.week === currentWeek)?.data || [];
+
+  const daysOfWeek = currentWeekData.map((day) => day.day);
+  const costs = currentWeekData.map((day) => day.cost);
+
+  // Obtén el nombre de la semana anterior
+  const previousWeek = `week${parseInt(currentWeek.substring(4), 10) - 1}`;
+
+  const lastMondayCost = weeksData.find((week) => week.week === previousWeek)?.data.find((day) => day.day.toLowerCase() === 'dilluns')?.cost || null;
+
+  const percentageChange = lastMondayCost ? ((currentMondayCost - lastMondayCost) / lastMondayCost) * 100 : null;
+
   return (
     <div className="card w-full bg-base-100">
       <div className="card-body">
@@ -60,12 +76,24 @@ function ChartCard() {
         </div>
         <div className="flex justify-between border-t-2 pt-5">
           <div>
-            <p className="text-gray-400">Despeses avui</p>
-            <h2 className="text-3xl font-bold">557,46€</h2>
+            <p className="text-gray-400">Despeses dilluns</p>
+            <h2 className="text-3xl font-bold">{currentMondayCost} €</h2>
           </div>
           <div className="text-left">
-            <p>+2.4%</p>
-            <p>respecte ahir</p>
+            {percentageChange !== null ? (
+              <>
+                <p>
+                  {percentageChange > 0 ? '+' : ''}
+                  {percentageChange.toFixed(2)}%
+                </p>
+                <p>respecte dilluns passat</p>
+              </>
+            ) : (
+              <>
+                <p>Sense dades</p>
+                <p>respecte dilluns passat</p>
+              </>
+            )}
           </div>
         </div>
       </div>

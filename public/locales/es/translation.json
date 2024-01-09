@@ -1,0 +1,9 @@
+{
+  "weeklyBalance": "Balance semanal",
+  "balanceCard": {
+    "lastExpenses": "Costes de la semana",
+    "mondayExpenses": "Costes del lunes",
+    "lastMonday": "respecto el último lunes",
+    "noData": "sin datos"
+  }
+}

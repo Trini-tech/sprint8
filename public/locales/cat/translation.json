@@ -1,0 +1,9 @@
+{
+  "weeklyBalance": "Balanç setmanal",
+  "balanceCard": {
+    "lastExpenses": "Despeses de la setmana",
+    "mondayExpenses": "Despeses del dilluns",
+    "lastMonday": "respecte l'últim dilluns",
+    "noData": "sense dades"
+  }
+}

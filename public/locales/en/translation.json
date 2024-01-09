@@ -1,0 +1,9 @@
+{
+  "weeklyBalance": "Weekly Balance",
+  "balanceCard": {
+    "lastExpenses": "Week expenses",
+    "mondayExpenses": "Monday expenses",
+    "lastMonday": "over last Monday",
+    "noData": "no data found"
+  }
+}

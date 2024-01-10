@@ -39,8 +39,12 @@ function BalanceCard() {
           <h1 className="text-2xl font-semibold ">{weekSum}€</h1>
         </div>
         <div className="grid grid-cols-2 gap-3 place-items-center justify-end">
-          <FontAwesomeIcon icon={faArrowLeft} className="p-4" onClick={handleArrowLeftClick} />
-          <FontAwesomeIcon icon={faArrowRight} className="p-4" onClick={handleArrowRightClick} />
+          <button onClick={handleArrowLeftClick}>
+            <FontAwesomeIcon icon={faArrowLeft} className="p-4" onClick={handleArrowLeftClick} />
+          </button>
+          <button onClick={handleArrowRightClick}>
+            <FontAwesomeIcon icon={faArrowRight} className="p-4" />
+          </button>
         </div>
       </div>
     </div>

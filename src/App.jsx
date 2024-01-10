@@ -1,5 +1,5 @@
 import { Suspense } from 'react';
-
+import ChartCard from './components/Chartcard';
 import BalanceCard from './components/BalanceCard';
 import Languages from './components/Languages';
 
@@ -23,6 +23,7 @@ function App() {
         <div className="grid gap-4 w-[36rem]">
           <Languages />
           <BalanceCard />
+          <ChartCard />
         </div>
       </Suspense>
     </>

@@ -1,5 +1,5 @@
 import { Suspense } from 'react';
-import ChartCard from './components/Chartcard';
+import ChartCard from './components/Chartcarddd';
 import BalanceCard from './components/BalanceCard';
 import Languages from './components/Languages';
 

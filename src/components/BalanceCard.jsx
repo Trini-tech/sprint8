@@ -1,13 +1,12 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
-import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
+import { faArrowRight, faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { weeklyBalance, changeCurrentWeek } from '../redux/slices/expensesSlice';
 import { useTranslation } from 'react-i18next';
 
 function BalanceCard() {
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
 
   const dispatch = useDispatch();
   const currentWeek = useSelector((state) => state.expenses.currentWeek);

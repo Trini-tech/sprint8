@@ -18,15 +18,13 @@ const Loader = () => (
 
 function App() {
   return (
-    <>
-      <Suspense fallback={<Loader />}>
-        <div className="grid gap-4 w-[36rem]">
-          <Languages />
-          <BalanceCard />
-          <ChartCard />
-        </div>
-      </Suspense>
-    </>
+    <Suspense fallback={<Loader />}>
+      <div className="grid gap-4 w-[36rem]">
+        <Languages />
+        <BalanceCard />
+        <ChartCard />
+      </div>
+    </Suspense>
   );
 }
 

@@ -52,15 +52,9 @@ function BarsChart() {
 }
 
 function ChartCard() {
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
 
   const { currentWeek, weeksData, today: currentMondayCost } = useSelector((state) => state.expenses);
-
-  // Obtén los datos de la semana actual
-  const currentWeekData = weeksData.find((week) => week.week === currentWeek)?.data || [];
-
-  const daysOfWeek = currentWeekData.map((day) => day.day);
-  const costs = currentWeekData.map((day) => day.cost);
 
   // Obtén el nombre de la semana anterior
   const previousWeek = `week${parseInt(currentWeek.substring(4), 10) - 1}`;
